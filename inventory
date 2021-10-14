@@ -1,2 +1,7 @@
-[all]
-127.0.0.1 ansible_connection=local
+---
+# vim:set filetype=yaml:
+all:
+  hosts:
+    127.0.0.1
+  vars:
+    ansible_connection: local
