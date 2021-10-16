@@ -1,0 +1,2 @@
+---
+yadm_repodir: "{{ lookup('env', 'XDG_DATA_HOME') | d('~/.local/share', true) }}/yadm/repo.git"
