@@ -1,2 +1,4 @@
 ---
 dotfiles_repo: https://github.com/mjele021/dotfiles.git
+# remove value to avoid setting seperate push url
+dotfiles_repo_push: git@github.com:mjele021/dotfiles.git

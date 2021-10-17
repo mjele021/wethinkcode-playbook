@@ -16,3 +16,11 @@
   ansible.builtin.command:
     cmd:  yadm clone "{{ dotfiles_repo }}"
   when: repo_check.before == None
+
+- name: Set pushurl for dotfiles repo
+  ansible.builtin.command:
+    cmd: git remote set-url --push origin "{{ dotfiles_repo_push }}"
+    chdir: "{{ yadm_repodir }}"
+  when: dotfiles_repo_push != None and git_config is not regex("pushurl = \w+")
+  vars:
+    git_config: "{{ lookup('file', '{{ yadm_repodir }}/config') }}"
