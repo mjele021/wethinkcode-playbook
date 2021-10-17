@@ -6,7 +6,7 @@
   become: true
 - name: Check if dotfiles repo already cloned locally
   ansible.builtin.git:
-    repo: 'https://github.com/mjele021/dotfiles'
+    repo: "{{ dotfiles_repo }}"
     dest: "{{ yadm_repodir }}"
     clone: no
     update: no
@@ -14,5 +14,5 @@
   register: repo_check
 - name: Install dotfiles via yadm
   ansible.builtin.command:
-    cmd:  yadm clone 'https://github.com/mjele021/dotfiles'
+    cmd:  yadm clone "{{ dotfiles_repo }}"
   when: repo_check.before == None
