@@ -1,0 +1,4 @@
+---
+nvim_data_dir: "{{ lookup('env', 'XDG_DATA_HOME') | d('~/.local/share', true) }}/nvim"
+nvim_config_dir: "{{ lookup('env', 'XDG_CONFIG_HOME') | d('~/.config', true) }}/nvim"
+nvim_rc: "{{ lookup('file', '{{ nvim_config_dir }}/init.vim' }}"
